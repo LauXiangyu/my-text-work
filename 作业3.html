@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            span{
+                color: red;
+                margin: auto;
+            }
+            div{
+                margin:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <button  onclick="timing()">计时开始</button>
+        <div id="demo">
+            
+        </div>
+        <script>
+            var block = document.getElementById('demo');
+            var state = 0;
+            var i=0;
+            var zhanting=null;
+            function timing(){
+                if (zhanting != null){
+                    clearInterval(zhanting);
+                    zhanting=null;
+                    state=0; 
+                   
+                }
+                else{
+                    zhanting = setInterval(update,1000);
+                    state=1;
+                }
+            }
+            function update(id="zhanting"){
+                var j=i++;
+                block.innerHTML='Time passed:' +'<span>'+ j +'</span>' +'s';
+            }
+        </script>
+    </body>
+</html>
